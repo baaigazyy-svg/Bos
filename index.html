@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менин Сайтым</title>
+    <style>
+        /* Негизги стилдер */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* Навигация (Меню) */
+        header {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d2ff;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #00d2ff;
+        }
+        /* Башкы бөлүм (Hero) */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #ccc;
+        }
+        .btn {
+            display: inline-block;
+            background: #00d2ff;
+            color: #1a1a2e;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #fff;
+        }
+        /* Кызматтар бөлүмү */
+        .services {
+            padding: 60px 5%;
+            text-align: center;
+        }
+        .services h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            margin-bottom: 15px;
+            color: #1a1a2e;
+        }
+        /* Байланыш бөлүмү */
+        .contact {
+            background: #fff;
+            padding: 60px 5%;
+            text-align: center;
+        }
+        .contact form {
+            max-width: 500px;
+            margin: 20px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .contact input, .contact textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        /* Төмөнкү бөлүк (Footer) */
+        footer {
+            background: #1a1a2e;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">МЕНИН БРЕНДИМ</div>
+        <nav>
+            <a href="#home">Башкы бет</a>
+            <a href="#services">Кызматтар</a>
+            <a href="#contact">Байланыш</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Салам! Биздин сайтка кош келиңиз</h1>
+        <p>Биз сиздин идеяларыңызды ишке ашырууга жана бизнесиңизди өнүктүрүүгө жардам беребиз.</p>
+        <a href="#contact" class="btn">Байланышуу</a>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Биздин кызматтар</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Веб-иштеп чыгуу</h3>
+                <p>Заманбап жана тез иштеген сайттарды нөлдөн баштап жасайбыз.</p>
+            </div>
+            <div class="card">
+                <h3>Дизайн</h3>
+                <p>Кардарларды өзүнө тарткан уникалдуу логотип жана UI/UX дизайн.</p>
+            </div>
+            <div class="card">
+                <h3>Маркетинг</h3>
+                <p>Социалдык тармактар аркылуу сатууну көбөйтүү жана жарнама.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Биз менен байланышыңыз</h2>
+        <form onsubmit="sendMessage(event)">
+            <input type="text" id="name" placeholder="Сиздин атыңыз" required>
+            <input type="tel" id="phone" placeholder="Телефон номериңиз" required>
+            <textarea id="message" rows="4" placeholder="Билдирүүңүз..." required></textarea>
+            <button type="submit" class="btn">Жөнөтүү</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Бардык укуктар корголгон.</p>
+    </footer>
+
+    <script>
+        function sendMessage(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            alert('Рахмат, ' + name + '! Сиздин билдирүүңүз кабыл алынды.');
+            event.target.reset();
+        }
+    </script>
+
+</body>
+</html>
